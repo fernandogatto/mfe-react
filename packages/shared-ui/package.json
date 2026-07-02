@@ -1,0 +1,27 @@
+{
+  "name": "@shared/ui",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js",
+    "./styles/globals.css": "./dist/globals.css"
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --dts && cp src/styles/globals.css dist/globals.css"
+  },
+  "peerDependencies": {
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "tsup": "^8.5.1",
+    "typescript": "5.2.2",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "@types/react": "18.2.79",
+    "@types/react-dom": "18.2.25"
+  }
+}

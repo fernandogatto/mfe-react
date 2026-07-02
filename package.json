@@ -1,0 +1,19 @@
+{
+  "private": true,
+  "scripts": {
+    "build:ui": "npm run build -w @shared/ui",
+    "build:customers": "npm run build -w mfe-customers",
+    "build:products": "npm run build -w mfe-products",
+    "build:dashboard": "npm run build -w mfe-dashboard",
+    "build:shell": "npm run build -w shell",
+    "build": "npm run build:ui && npm run build:customers && npm run build:products && npm run build:dashboard && npm run build:shell"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "devDependencies": {
+    "vite": "5.4.19",
+    "typescript": "5.2.2"
+  }
+}
