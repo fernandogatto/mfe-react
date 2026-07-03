@@ -10,12 +10,7 @@ O objetivo principal do projeto foi estudar padrões utilizados em aplicações 
 
 ## Demonstração
 
-<figure>
-  <video controls width="500">
-    <source src="./.github/demo.webm" type="video/webm">
-    Seu navegador não suporta a tag de vídeo.
-  </video>
-</figure>
+![Demonstração](./.github/demo.gif)
 
 ---
 
