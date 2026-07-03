@@ -228,61 +228,6 @@ O Shell possui tratamento de falha para garantir que a indisponibilidade de um m
 
 Foi implementado um carregador dinâmico responsável por tentar importar cada remote e tratar falhas de carregamento.
 
-Implementação:
-
-```tsx
-export function RemoteLoader({ remote }: Props) {
-  const [Component, setComponent] = useState<any>(null);
-  const [error, setError] = useState(false);
-
-  useEffect(() => {
-    let active = true;
-
-    async function load() {
-      try {
-        let module;
-
-        if (remote === "customers") {
-          module = await import("customers/customers");
-        }
-
-        if (remote === "products") {
-          module = await import("products/products");
-        }
-
-        if (remote === "dashboard") {
-          module = await import("dashboard/dashboard");
-        }
-
-        if (active) {
-          setComponent(() => module?.default);
-        }
-      } catch {
-        if (active) {
-          setError(true);
-        }
-      }
-    }
-
-    load();
-
-    return () => {
-      active = false;
-    };
-  }, [remote]);
-
-  if (error) {
-    return <div>MFE não disponível no momento</div>;
-  }
-
-  if (!Component) {
-    return <p>Loading...</p>;
-  }
-
-  return <Component />;
-}
-```
-
 Se algum remote estiver indisponível:
 
 ```text
@@ -290,34 +235,6 @@ MFE não disponível no momento
 ```
 
 Sem comprometer a aplicação inteira.
-
----
-
-## Solução para CSS entre Microfrontends
-
-Um dos principais desafios foi o carregamento de estilos dos remotes dentro do Shell.
-
-Problema encontrado:
-
-```text
-Componentes renderizavam, porém estilos Tailwind não eram aplicados dentro do Shell
-```
-
-Causa:
-
-```text
-Vite extraía CSS em arquivos separados e o Module Federation não carregava automaticamente o CSS do remote
-```
-
-Solução aplicada:
-
-```ts
-// vite.config.ts
-build: {
-  target: "esnext",
-  cssCodeSplit: false
-}
-```
 
 ---
 
