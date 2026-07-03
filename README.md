@@ -144,7 +144,7 @@ export * from "./components/ui/badge";
 export * from "./lib/utils";
 ```
 
-Uso:
+Exemplo de uso:
 
 ```tsx
 import { Button } from "@shared/ui";
@@ -152,7 +152,7 @@ import { Button } from "@shared/ui";
 
 ---
 
-## Shared Styling
+## CSS Global
 
 Todos os microfrontends compartilham o mesmo Design System utilizando um CSS global compartilhado.
 
@@ -173,9 +173,9 @@ O CSS compartilhado contém:
 
 ---
 
-## Build do Shared Package
+## Build do Shared UI
 
-O package compartilhado possui build independente utilizando **tsup**.
+O pacote compartilhado possui build independente utilizando **tsup**.
 
 Configuração:
 
@@ -202,7 +202,7 @@ dist/
 
 ---
 
-## Monorepo Architecture
+## Monorepo
 
 O projeto utiliza **NPM Workspaces** para centralizar dependências e compartilhar packages internos.
 
@@ -228,7 +228,7 @@ O Shell possui tratamento de falha para garantir que a indisponibilidade de um m
 
 Foi implementado um carregador dinâmico responsável por tentar importar cada remote e tratar falhas de carregamento.
 
-Se algum remote estiver indisponível:
+Se algum remote estiver indisponível, aparece:
 
 ```text
 MFE não disponível no momento
@@ -238,9 +238,7 @@ Sem comprometer a aplicação inteira.
 
 ---
 
-## Como executar localmente
-
-### Instalar dependências
+## Instalação
 
 Na raiz do projeto:
 
@@ -250,30 +248,30 @@ npm install
 
 ---
 
-### Rodar microfrontends individualmente
+## Execução local
 
-Customers
+### Customers
 
 ```bash
 cd apps/mfe-customers
 npm run dev
 ```
 
-Products
+### Products
 
 ```bash
 cd apps/mfe-products
 npm run dev
 ```
 
-Dashboard
+### Dashboard
 
 ```bash
 cd apps/mfe-dashboard
 npm run dev
 ```
 
-Shell
+### Shell
 
 ```bash
 cd apps/shell
@@ -282,7 +280,7 @@ npm run dev
 
 ---
 
-## Rodar em modo de produção
+## Build na ordem
 
 Primeiro buildar cada remote.
 
@@ -310,7 +308,7 @@ npm run build
 npm run preview
 ```
 
-Depois iniciar o Shell.
+### Shell
 
 ```bash
 cd apps/shell
@@ -375,7 +373,7 @@ cssCodeSplit: false;
 
 ---
 
-### Build independente do Shared Package
+### Build independente do Shared UI
 
 Problema:
 
@@ -393,9 +391,4 @@ tsup + css copy
 
 ---
 
-## Autor
-
-**Fernando Gatto**
-
-[GitHub](https://github.com/fernandogatto)
-[LinkedIn](https://www.linkedin.com/in/fernando-gatto/)
+Feito por [Fernando](https://github.com/fernandogatto)
